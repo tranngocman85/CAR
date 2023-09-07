@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #edeef0;
+        }
+
+        .container1 {
+            width: 100%;
+            height: 610px;
+            position: relative;
+        }
+
+        .box {
+            width: 80%;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            position: absolute;
+        }
+
+        .customer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .customer ul li {
+            padding: 10px;
+        }
+
+        .customer ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .customer ul form {
+            margin-top: 5px;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 600px;
+            margin-top: -90px;
+            position: absolute;
+        }
+
+        .d-block {
+            height: 600px
+        }
+
+        .search {
+            border-radius: 5px;
+            border-color: white;
+        }
+
+        form button {
+            background-color: transparent;
+            border-radius: 5px;
+            border-color: transparent;
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: green;
+            border-color: green;
+        }
+
+        /* Sub menu*/
+        nav.menu {
+            width: 100%;
+            height: 50px;
+            margin-top: -100px;
+            z-index: 1;
+            position: absolute;
+        }
+
+        nav.menu ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+
+        nav.menu ul li a {
+            font-size: 20px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 30px;
+        }
+
+        nav.menu ul li {
+            position: relative;
+        }
+
+        nav.menu ul li .sub_menu {
+            position: absolute;
+            list-style: none;
+            padding: 15px 0px;
+            flex-direction: column;
+            display: none;
+            left: -6px;
+        }
+
+        nav.menu ul li:hover .sub_menu {
+            display: block;
+        }
+
+        nav.menu ul li .sub_menu a {
+            padding: 15px 40px;
+            font-size: 20px;
+            border-bottom: 1px solid #706b6b;
+        }
+
+        nav.menu ul li .sub_menu li:last-child a {
+            border-bottom: none;
+        }
+
+        nav.menu ul li .sub_menu li:hover a {
+            color: green;
+        }
+
+        /*Làm đường viền menu */
+        nav.menu>ul>li>a {
+            position: relative;
+        }
+
+        nav.menu>ul>li>a::before {
+            /*Tác động trực tiếp vào thẻ a cùng cấp với nó thôi*/
+            content: '';
+            height: 4px;
+            width: 0px;
+            background-color: red;
+            bottom: 0px;
+            left: 0px;
+            position: absolute;
+            transition: width 0.3s;
+        }
+
+        nav.menu>ul>li:hover>a::before {
+            width: 100%;
+        }
+
+        /*Làm mũi tên*/
+        .arrow::after {
+            font: var(--fa-font-solid);
+            font-weight: 900px;
+            content: "\f107";
+            color: rgb(143, 142, 142);
+            position: absolute;
+            right: 7px;
+            top: 37px;
+        }
+
+        /* MORE */
+        .more {
+            display: flex;
+            flex-wrap: wrap;
+            font-weight: bold;
+            width: 100%;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .showmore {
+            border: 1px solid #e72a1a;
+            color: #e72a1a;
+            padding: 10px 19px;
+            line-height: 14px;
+            font-size: 14px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        /*section*/
+        .box3 {
+            height: 475px;
+        }
+
+        .p01 {
+            border: 3px solid rgb(129, 128, 128);
+            background: white;
+            height: 100%;
+            width: 80%;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .add {
+            color: #ffffff;
+            background: #c42d2d;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-left: -5px;
+            font-weight: bold;
+            border: 1px solid red;
+            border-radius: 5px;
+        }
+
+        .add>a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /*///section*/
+
+        /*footer*/
+        footer {
+            width: 100%;
+            height: 235px;
+            background-color: white;
+            margin-top: 20px;
+        }
+
+        .container3 {
+            height: 228px;
+            display: flex;
+
+        }
+
+        .edit_table2 {
+            width: 100%;
+            height: 128px;
+        }
+
+        .edit_block {
+            width: 100%;
+            height: 215px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .information1 {
+            width: 50%;
+        }
+
+        .title_information {
+            width: 50%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .edit_text7 {
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .edit_block2 {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box9 {
+            height: 15px;
+        }
+
+        .box10 {
+            height: 35px;
+            
+        }
+
+        .edit_block3 {
+            width: 380px;
+            height: 100px;
+        }
+
+        .title_information2 {
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .box11 {
+            width: 100%;
+            height: 33px;
+        }
+
+        .box12 {
+            height: 20px;
+        }
+
+        .title_information3 {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .edit_text8 {
+            font-size: 11px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /*footer*/
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="box">
+            <nav class="customer">
+                <ul>
+                    <li>
+                        <a href="#"> Trang Chủ </a>
+                    </li>
+                    <li>
+                        <a href="#"> Tin Tức </a>
+                    </li>
+                    <li>
+                        <a href="#"> Sản Phẩm </a>
+                    </li>
+                    <li>
+                        <a href="#"> Showroom </a>
+                    </li>
+                    <li>
+                        <a href="#"> Đăng Nhập </a>
+                    </li>
+                    <form>
+                        <input class="search" type="text" placeholder="Tìm kiếm ở đây">
+                        <button>Tìm Kiếm</button>
+                    </form>
+                </ul>
+            </nav>
+        </div>
+        <div class="box2">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="anh/banner01.png" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="anh/banner02.png" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="anh/banner03.png" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev w-60" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next  w-60" href="#carouselExampleIndicators" role="button"
+                    data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <nav class="menu">
+            <ul>
+                <li class="car">
+                    <a href="#"> Mazda</a>
+                    <ul class="sub_menu">
+                        <li><a href="#"> CX5 </a> </li>
+                        <li><a href="#"> CX8 </a> </li>
+                        <li><a href="#"> Mazda3 </a> </li>
+                        <li><a href="#"> Mazda6 </a> </li>
+                    </ul>
+                </li>
+                <li class="car">
+                    <a href="#"> Mercedes</a>
+                    <ul class="sub_menu">
+                        <li><a href="#"> Maybach </a> </li>
+                        <li><a href="#"> C200 </a> </li>
+                        <li><a href="#"> E200 </a> </li>
+                        <li><a href="#"> GLC300 </a> </li>
+                    </ul>
+
+                </li>
+                <li class="car">
+                    <a href="#"> Honda</a>
+                    <ul class="sub_menu">
+                        <li><a href="#"> HR-V </a> </li>
+                        <li><a href="#"> CR-V </a> </li>
+                        <li><a href="#"> City </a> </li>
+                        <li><a href="#"> Accord </a> </li>
+                    </ul>
+                </li>
+                <li class="car">
+                    <a href="#"> Toyota</a>
+                    <ul class="sub_menu">
+                        <li><a href="#"> Vios </a> </li>
+                        <li><a href="#"> Altis </a> </li>
+                        <li><a href="#"> Camry </a> </li>
+                        <li><a href="#"> Innova </a> </li>
+                    </ul>
+                </li>
+                <li class="car">
+                    <a href="#"> Roll Royce</a>
+                    <ul class="sub_menu">
+                        <li><a href="#"> Liên hệ để thiết kế </a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+        <!--Phần thân-->
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/mazda-cx-5.jpg"></a>
+                            <div class="content">
+                                <h4>Mazda CX-5</h4>
+                                <small>Mazda CX-5 là dòng xe có kiểu dáng thiết kế sang trọng, đẳng cấp có những ấn
+                                    tượng sâu sắc và khó quên. Với phiên bản năm 2022, mẫu xe này lại không làm người
+                                    tiêu dùng thất vọng bởi xe được trang bị thêm nhiều trang bị hiện đại hơn.</small>
+                                <p class="price">889,000,000 VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/mazda3.jpg"></a>
+                            <div class="content">
+                                <h4>Mazda 3</h4>
+                                <small> Mazda 3 2022 được đánh giá như một mẫu xe hoàn hảo đáp ứng được đầy đủ yêu cầu
+                                    của khách hàng. Với mức giá bán hợp lý cùng chất lượng tốt bền bỉ chắc chắn Mazda 3
+                                    2022 sẽ không là khách hàng phải thất vọng với sự lựa chọn của mình. </small>
+                                <p class="price">789,000,000 VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/glc-300.jpg"></a>
+                            <div class="content">
+                                <h4>Mercedes GLC 300</h4>
+                                <small>Tại Việt Nam Mercedes GLC 300 2022 dòng xe SUV hạng sang thu hút được sự chú ý
+                                    của đông đảo các khách hàng trong và ngoài nước . Đã trải qua nhiều lần nâng cấp nên
+                                    mẫu xe này đã có rất nhiều sự thay đổi cả bên trong và bên ngoài. </small>
+                                <p class="price">3,089,000,000 VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/toyota-camry.jpg"></a>
+                            <div class="content">
+                                <h4>Toyota Camry</h4>
+                                <small>Toyota Camry là dòng xe đến từ Nhật Bản, luôn thu hút sự chú ý của đông đảo các
+                                    khách hàng nhờ được trang bị rất nhiều tiện nghi hiện đại và cho động cơ nên dòng xe
+                                    này được rất nhiều khách hàng đánh giá cao. </small>
+                                <p class="price">1,029,000,000VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/hondacity.jpg"></a>
+                            <div class="content">
+                                <h4>Honda City</h4>
+                                <small>Honda là một công ty sản xuất xe hơi nổi tiếng. Họ đã kiên trì để luôn nâng cấp và áp dụng những công nghệ trên những sản phẩm của mình. Chiếc City 2022 là chiếc ô tô mới nhất tạo cảm giác cao cấp cho cả hành khách và người lái xe.
+                                </small>
+                                <p class="price">529,000,000 VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/rolls-royce-ghost.jpg"></a>
+                            <div class="content">
+                                <h4>Rolls Royce Ghost Series II</h4>
+                                <small>Rolls Royce Ghost Series II là một “xế hộp” hạng sang cao cấp có khả năng phô trương được quyền lực và đẳng cấp. Tuy có giá bán không hề thấp nhưng khi đã sở hữu chiếc siêu xe này chắc chắn khách hàng sẽ không phải hối hận với quyết định của mình. </small>
+                                <p class="price">31,000,000,000 VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/s-650.jpg"></a>
+                            <div class="content">
+                                <h4>Mercedes Maybach S650</h4>
+                                <small>Mercedes Maybach S650 là một trong những dòng xe sang có mức giá bán hấp dẫn nhất trên thị trường hiện nay,hướng đến đối tượng khách hàng thương gia,khiến cho khách hàng phải trầm trồ về những đường nét thiết kế tỉ mỉ,cẩn trọng và đẳng cấp. </small>
+                                <p class="price">14,899,000,000 VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/e200.jpg"></a>
+                            <div class="content">
+                                <h4>Mercedes E200</h4>
+                                <small>Mercedes E200 2022 là một trong những mẫu xe hạng sang nổi tiếng của Mercedes.Đồng thời, đây cũng chính là mẫu xe tạo được cơn địa chấn vang dội ngay từ khi ra mắt với doanh thu luôn nằm ở trong top đầu những xe bán chạy nhất của Mercedes.
+                                </small>
+                                <p class="price">2,290,000,000 VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12 mt-3 box3">
+                    <div class="p01">
+                        <div>
+                            <a href="#"><img src="anh/hondacrv.jpg"></a>
+                            <div class="content">
+                                <h4>Honda CR-V</h4>
+                                <small>Honda CR-V 2022 mang đến những ấn tượng rất riêng biệt, bên cạnh đó, dòng xe cũng
+                                    có những thay đổi bắt kịp với xu hướng của người dùng hiện nay. Cùng tìm hiểu về mẫu
+                                    xe phiên bản mới này đã được nâng cấp, cải tiến những gì nhé. </small>
+                                <p class="price">1,118,000,000 VND</p>
+                                <button class="add"> <a href="#"> Chi tiết</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="more">
+            <a href="#" class="showmore"> More </a>
+        </div>
+        
+
+    <footer>
+        <hr>
+        <div class="container3">
+            <table class="edit_table2">
+                <tr>
+                    <td class="col-md-4">
+                        <div class="edit_block">
+                            <img src="anh/trungbay1.jpg" />
+                        </div>
+                    </td>
+                    <td class="col-md-4">
+                        <div class="edit_block">
+                            <img src="anh/trungbay2.jpg" />
+                        </div>
+                    </td>
+                    <td class="col-md-4">
+                        <div class="edit_block">
+                            <img src="anh/trungbay3.jpg" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="edit_block2">
+                            <div class="information1">
+                                <div class="title_information">
+                                    <div class="box10">
+                                        <h6>
+                                        THÔNG TIN
+                                        </h6>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            VỀ CHÚNG TÔI
+                                        </p>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            GIAO HÀNG
+                                        </p>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            CẢM NGHĨ
+                                        </p>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            LƯU TRỮ
+                                        </p>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            CHÍNH SÁCH
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="information1">
+                                <div class="title_information">
+                                    <div class="box10">
+                                        <h6>
+                                            MUA HÀNG
+                                        </h6>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            VẬN CHUYỂN
+                                        </p>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            MUA HÀNG
+                                        </p>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            QUỐC TẾ
+                                        </p>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            LIÊN KẾT
+                                        </p>
+                                    </div>
+                                    <div class="box9">
+                                        <p class="edit_text7">
+                                            DỊCH VỤ
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="edit_block3">
+                            <div class="title_information2">
+                                <div class="box10">
+                                    <h6>
+                                        GỬI EMAIL
+                                    </h6>
+                                </div>
+                                <div class="box9">
+                                    <p class="edit_text7">
+                                        Gửi email cho chúng tôi để được hỗ trợ
+                                    </p>
+                                </div>
+                                <div class="box11">
+                                    <form class="form-inline">
+                                        <input
+                                            style="background-color:transparent; color:white !important; height: 34px;"
+                                            class="form-control mr-sm-2" type="search" placeholder="Email"
+                                            aria-label="Search">
+                                        <button style="border-color: black; color: white; background-color: #343A40;"
+                                            class="btn btn-outline-success my-2 my-sm-0 background"
+                                            type="submit">Gửi</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="edit_block3">
+                            <div class="title_information3">
+                                <div class="box10">
+                                    <h6>
+                                        LIÊN HỆ
+                                    </h6>
+                                </div>
+                                <div class="box12">
+                                    <p class="edit_text8">
+                                        Softech Aptech, 38 Yên Bái, Hải Châu 1, Hải Châu, Đà Nẵng (Tòa nhà VNPT)
+                                    </p>
+                                </div>
+                                <div class="box12">
+                                    <p class="edit_text8">
+                                        Điện thoại: 0236.3.779.779 - Fax: 0236.3.779.555
+                                    </p>
+                                </div>
+                                <div class="box12">
+                                    <p class="edit_text8">
+                                        Email: tuyensinh@softech.vn
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+    <script>
+        $(document).ready(function () {
+            $('.sub_menu').parent('li').addClass('arrow');
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
